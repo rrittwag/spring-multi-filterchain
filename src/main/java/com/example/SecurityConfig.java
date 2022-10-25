@@ -15,8 +15,9 @@ public class SecurityConfig {
         @Bean
         public SecurityFilterChain alphaFilterChain(HttpSecurity http) throws Exception {
             http
+                    .securityMatcher("/alpha/**)
                     .authorizeHttpRequests((authorize) -> authorize
-                            .requestMatchers("/alpha").permitAll());
+                            .anyRequest().permitAll());
             return http.build();
         }
     }
@@ -27,8 +28,9 @@ public class SecurityConfig {
         @Bean
         public SecurityFilterChain bravoFilterChain(HttpSecurity http) throws Exception {
             http
+                    .securityMatcher("/bravo/**)
                     .authorizeHttpRequests((authorize) -> authorize
-                            .requestMatchers("/bravo").permitAll());
+                            .anyRequest().permitAll());
             return http.build();
         }
     }
